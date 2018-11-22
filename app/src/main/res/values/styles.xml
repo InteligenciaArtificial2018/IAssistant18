@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="TemaMain" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorBarraMain</item>
+        <item name="colorPrimaryDark">@color/colorBarra2Main</item>
+        <item name="colorAccent">@color/colorFondoMain</item>
+
+    </style>
+
+    <style name="TemaJeffy" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorBarra2Jeffy</item>
+        <item name="colorPrimaryDark">@color/colorBarraJeffy</item>
+        <item name="colorAccent">@color/colorFondoJeffy</item>
+    </style>
+
+    <style name="TemaIzzy" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorBarra2Izzy</item>
+        <item name="colorPrimaryDark">@color/colorBarraIzzy</item>
+        <item name="colorAccent">@color/colorFondoIzzy</item>
+    </style>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorBarraJeffy">#004D40</color>
+    <color name="colorBarra2Jeffy">#80CBC4</color>
+    <color name="colorFondoJeffy">#e0f2f1</color>
+    <color name="colorBarraIzzy">#311B92</color>
+    <color name="colorBarra2Izzy">#b388ff</color>
+    <color name="colorFondoIzzy">#ede7f6</color>
+    <color name="colorBarraMain">#ff6f00</color>
+    <color name="colorBarra2Main">#ffc107</color>
+    <color name="colorFondoMain">#fff8e1</color>
+</resources>

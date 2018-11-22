@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Jeffy</string>
+    <string name="txt1main">!Bienvenido a IAssistant, escoge el personaje con quien quieres interactuar!</string>
+    <string name="txt2main">Izzy</string>
+    <string name="txt3main">Jeffy</string>
+    <string name="txt1izzy">Escuchando</string>
+    <string name="txt2izzy">Respondiendo</string>
+    <string name="txt1jeffy">Escuchando</string>
+    <string name="txt2jeffy">Respondiendo</string>
+</resources>
