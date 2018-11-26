@@ -13,6 +13,7 @@ import android.speech.tts.TextToSpeech
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_izzy.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -39,7 +40,8 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onError(error: AIError?) {
-        val mensajerror = "Hubo un error"
+        val mensajerror = "Debes conectarte a la red Wi-fi, o activar tus datos"
+        Toast.makeText(this, "Conectate a una red", Toast.LENGTH_SHORT).show()
         obtenertextos(mensajerror, mensajerror)
     }
 
