@@ -61,6 +61,7 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
         validaciondeversion()
         izzy()
         capturavoz = TextToSpeech(this, this)
+        botonatras()
     }
     fun izzy()
     {
@@ -100,5 +101,13 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     fun respuesta(respuesta: String?)
     {
         capturavoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
+    }
+    fun botonatras ()
+    {
+        val atras = supportActionBar
+        if (atras != null)
+        {
+            atras.setDisplayHomeAsUpEnabled(true)
+        }
     }
 }

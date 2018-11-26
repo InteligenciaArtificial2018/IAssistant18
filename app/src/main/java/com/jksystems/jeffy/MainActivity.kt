@@ -5,6 +5,7 @@ import ai.api.android.AIConfiguration
 import ai.api.android.AIService
 import ai.api.model.AIError
 import ai.api.model.AIResponse
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.pm.PackageManager
 import android.os.Build
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
         validaciondeversion()
         jeffy()
         capturavoz = TextToSpeech(this, this)
+        botonatras()
     }
 
     fun jeffy()
@@ -101,5 +103,15 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     fun respuesta(respuesta: String?)
     {
         capturavoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
+    }
+
+    @SuppressLint("RestrictedApi")
+    fun botonatras ()
+    {
+        val atras = supportActionBar
+        if (atras != null)
+        {
+            atras.setDisplayHomeAsUpEnabled(true)
+        }
     }
 }

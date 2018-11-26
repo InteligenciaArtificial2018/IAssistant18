@@ -20,9 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:theme="@style/TemaJeffy" android:label="Jeffy">
+        <activity android:name=".MainActivity" android:parentActivityName=".Main" android:theme="@style/TemaJeffy" android:label="Jeffy">
         </activity>
-        <activity android:name=".Izzy" android:theme="@style/TemaIzzy" android:label="Izzy">
+        <activity android:name=".Izzy" android:parentActivityName=".Main" android:theme="@style/TemaIzzy" android:label="Izzy">
         </activity>
     </application>
 
