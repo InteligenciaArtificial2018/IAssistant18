@@ -17,8 +17,8 @@ class Main : AppCompatActivity() {
         val btnJeffy = findViewById<ImageView>(R.id.jeffybtn)
 
         btnIzzy.setOnClickListener {
-        val intent = Intent(this, Izzy::class.java)
-        startActivity(intent)
+            val intent = Intent(this, Izzy::class.java)
+            startActivity(intent)
         }
 
         btnJeffy.setOnClickListener {

@@ -1,10 +1,20 @@
 <resources>
     <string name="app_name">Jeffy</string>
-    <string name="txt1main">!Bienvenido a IAssistant, escoge el personaje con quien quieres interactuar!</string>
-    <string name="txt2main">Izzy</string>
-    <string name="txt3main">Jeffy</string>
-    <string name="txt1izzy">Escuchando</string>
-    <string name="txt2izzy">Respondiendo</string>
-    <string name="txt1jeffy">Escuchando</string>
-    <string name="txt2jeffy">Respondiendo</string>
+    <string name="tvBienvenida">!Bienvenido a IAssistant, escoge el personaje con quien quieres interactuar!</string>
+    <string name="tvIzzy">Izzy</string>
+    <string name="tvJeffy">Jeffy</string>
+    <string name="tvescuchandoizzy">Escuchando</string>
+    <string name="tvrespondiendoizzy">Respondiendo</string>
+    <string name="tvescuchandojeffy">Escuchando</string>
+    <string name="tvrespondiendojeffy">Respondiendo</string>
+    <string name="tvescuchandotituloizzy">Escuchando</string>
+    <string name="tvrespondiendotituloizzy">Respondiendo</string>
+    <string name="tvescuchandotitulojeffy">Escuchando</string>
+    <string name="tvrespondiendotitulojeffy">Respondiendo</string>
+    <string name="imgmicroizzy"></string>
+    <string name="imgizzy"></string>
+    <string name="imgjeffy"></string>
+    <string name="imgmicrojeffy"></string>
+    <string name="botonjeffy"></string>
+    <string name="botonizzy"></string>
 </resources>

@@ -14,25 +14,27 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginBottom="32dp" app:layout_constraintBottom_toTopOf="@+id/textView7"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView6"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView6"
+            android:contentDescription="@string/botonjeffy"/>
     <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp" app:srcCompat="@drawable/asistente"
             android:id="@+id/jeffybtn"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="56dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:contentDescription="@string/botonjeffy"/>
     <TextView
-            android:text="@string/txt1main"
+            android:text="@string/tvBienvenida"
             android:layout_width="360dp"
             android:layout_height="39dp"
             android:id="@+id/textView5"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp" android:textSize="14sp"
             android:clickable="false" android:enabled="false" android:textColor="@color/cardview_dark_background"
-            android:editable="false"/>
+            />
     <TextView
-            android:text="@string/txt2main"
+            android:text="@string/tvIzzy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView6" android:layout_marginTop="36dp"
@@ -40,13 +42,13 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/izzbtn" android:textColor="@color/cardview_dark_background"
-            android:enabled="false" android:editable="false"/>
+            android:enabled="false" />
     <TextView
-            android:text="@string/txt3main"
+            android:text="@string/tvJeffy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView7" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/jeffybtn" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:textColor="@color/cardview_dark_background" android:enabled="false" android:editable="false"/>
+            android:textColor="@color/cardview_dark_background" android:enabled="false" />
 </android.support.constraint.ConstraintLayout>
