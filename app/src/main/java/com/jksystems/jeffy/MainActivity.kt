@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onError(error: AIError?) {
-        val mensajerror = "Debes conectarte a la red Wi-fi, o activar tus datos"
-        Toast.makeText(this, "Conectate a una red", Toast.LENGTH_SHORT).show()
+        val mensajerror = "Despacio, ha ocurrido un error"
+        //Toast.makeText(this, "C", Toast.LENGTH_SHORT).show()
         obtenertextos(mensajerror, mensajerror)
     }
 
