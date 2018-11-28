@@ -15,7 +15,6 @@ import android.speech.tts.TextToSpeech
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
@@ -53,9 +52,9 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     override fun onListeningFinished() {
 
     }
-    var CapturaVoz : TextToSpeech? = null
-    val TokenAcceso = "6d839590a6244f7baca91a8c44564f99"
-    val voz = 1
+    private var CapturaVoz : TextToSpeech? = null
+    private val Token = "6d839590a6244f7baca91a8c44564f99"
+    private val voz = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -67,13 +66,13 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
 
     fun jeffy()
     {
-        val configuracion = AIConfiguration(TokenAcceso, ai.api.AIConfiguration.SupportedLanguages.Spanish,AIConfiguration.RecognitionEngine.System)
+        val configuracion = AIConfiguration(Token, ai.api.AIConfiguration.SupportedLanguages.Spanish,AIConfiguration.RecognitionEngine.System)
         val microfono = AIService.getService(this, configuracion)
         microfono.setListener(this)
         microjeffy.setOnClickListener { microfono.startListening()  }
     }
 
-    fun validaciondeversion()
+    private fun validaciondeversion()
     {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
             {
@@ -81,7 +80,7 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
             }
     }
 
-    fun permiso()
+    private fun permiso()
     {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED)
         {
@@ -106,10 +105,6 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     @SuppressLint("RestrictedApi")
     fun botonatras ()
     {
-        val atras = supportActionBar
-        if (atras != null)
-        {
-            atras.setDisplayHomeAsUpEnabled(true)
-        }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }
