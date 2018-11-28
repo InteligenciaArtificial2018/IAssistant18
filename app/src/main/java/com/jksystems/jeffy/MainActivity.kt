@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResult(result: AIResponse?) {
         val resultado = result?.result
-        val vozescuchada = resultado?.resolvedQuery
+        val VozEscuchada = resultado?.resolvedQuery
         val respuesta = resultado?.fulfillment?.speech
-        obtenertextos(vozescuchada, respuesta)
+        obtenertextos(VozEscuchada, respuesta)
     }
 
     override fun onListeningStarted() {
@@ -42,9 +42,8 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onError(error: AIError?) {
-        val mensajerror = "Despacio, ha ocurrido un error"
-        //Toast.makeText(this, "C", Toast.LENGTH_SHORT).show()
-        obtenertextos(mensajerror, mensajerror)
+        val MensajError = "Despacio, ha ocurrido un error"
+        obtenertextos(MensajError, MensajError)
     }
 
     override fun onListeningCanceled() {
@@ -54,21 +53,21 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     override fun onListeningFinished() {
 
     }
-    var capturavoz : TextToSpeech? = null
-    val tokendeacceso = "6d839590a6244f7baca91a8c44564f99"
-    val VOZ = 1
+    var CapturaVoz : TextToSpeech? = null
+    val TokenAcceso = "6d839590a6244f7baca91a8c44564f99"
+    val voz = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         validaciondeversion()
         jeffy()
-        capturavoz = TextToSpeech(this, this)
+        CapturaVoz = TextToSpeech(this, this)
         botonatras()
     }
 
     fun jeffy()
     {
-        val configuracion = AIConfiguration(tokendeacceso, ai.api.AIConfiguration.SupportedLanguages.Spanish,AIConfiguration.RecognitionEngine.System)
+        val configuracion = AIConfiguration(TokenAcceso, ai.api.AIConfiguration.SupportedLanguages.Spanish,AIConfiguration.RecognitionEngine.System)
         val microfono = AIService.getService(this, configuracion)
         microfono.setListener(this)
         microjeffy.setOnClickListener { microfono.startListening()  }
@@ -86,14 +85,14 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED)
         {
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), VOZ)
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), voz)
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun obtenertextos(vozescuchada: String?, respuesta: String?)
+    fun obtenertextos(VozEscuchada: String?, respuesta: String?)
     {
-        tvescuchandojeffy.text = vozescuchada
+        tvescuchandojeffy.text = VozEscuchada
         tvrespondiendojeffy.text = respuesta
         respuesta(respuesta)
     }
@@ -101,7 +100,7 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun respuesta(respuesta: String?)
     {
-        capturavoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
+        CapturaVoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
     }
 
     @SuppressLint("RestrictedApi")

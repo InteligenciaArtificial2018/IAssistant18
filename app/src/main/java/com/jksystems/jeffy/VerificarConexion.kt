@@ -8,8 +8,8 @@ class VerificarConexion {
     companion object {
         fun verificarConexion(activity: AppCompatActivity): Boolean {
             val conectar = activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val infodered = conectar.activeNetworkInfo
-            return infodered != null && infodered.isConnected
+            val InfoRed = conectar.activeNetworkInfo
+            return InfoRed != null && InfoRed.isConnected
         }
     }
 }

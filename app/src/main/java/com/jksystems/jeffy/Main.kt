@@ -12,10 +12,10 @@ class Main : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        val btnIzzy = findViewById<ImageView>(R.id.izzbtn)
-        val btnJeffy = findViewById<ImageView>(R.id.jeffybtn)
+        val BtnIzzy = findViewById<ImageView>(R.id.izzbtn)
+        val BtnJeffy = findViewById<ImageView>(R.id.jeffybtn)
 
-        btnIzzy.setOnClickListener {
+        BtnIzzy.setOnClickListener {
             if (VerificarConexion.verificarConexion(this))
             {
                 val intent = Intent(this, Izzy::class.java)
@@ -24,11 +24,11 @@ class Main : AppCompatActivity() {
             else
             {
                 Toast.makeText(this, "¡Verifica tu conexión a Internet!", Toast.LENGTH_SHORT).show()
-                btnIzzy.isClickable = false
+                BtnIzzy.isClickable = false
             }
         }
 
-        btnJeffy.setOnClickListener {
+        BtnJeffy.setOnClickListener {
             if (VerificarConexion.verificarConexion(this))
             {
                 val intent = Intent(this, MainActivity::class.java)
@@ -37,7 +37,7 @@ class Main : AppCompatActivity() {
             else
             {
                 Toast.makeText(this, "¡Verifica tu conexión a Internet!", Toast.LENGTH_SHORT).show()
-                btnJeffy.isClickable = false
+                BtnJeffy.isClickable = false
             }
         }
     }

@@ -25,9 +25,9 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResult(result: AIResponse?) {
         val resultado = result?.result
-        val vozescuchada = resultado?.resolvedQuery
+        val VozEscuchada = resultado?.resolvedQuery
         val respuesta = resultado?.fulfillment?.speech
-        obtenertextos(vozescuchada, respuesta)
+        obtenertextos(VozEscuchada, respuesta)
     }
 
     override fun onListeningStarted() {
@@ -40,9 +40,9 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onError(error: AIError?) {
-        val mensajerror = "Despacio, ha ocurrido un error"
+        val MensajError = "Despacio, ha ocurrido un error"
         //Toast.makeText(this, "Conectate a una red", Toast.LENGTH_SHORT).show()
-        obtenertextos(mensajerror, mensajerror)
+        obtenertextos(MensajError, MensajError)
     }
 
     override fun onListeningCanceled() {
@@ -52,20 +52,20 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     override fun onListeningFinished() {
 
     }
-    var capturavoz : TextToSpeech? = null
-    val tokendeacceso = "fb03ea865c5a48c1801dd6383346fcc4"
-    val VOZ = 1
+    var CapturaVoz : TextToSpeech? = null
+    val TokenAcceso = "fb03ea865c5a48c1801dd6383346fcc4"
+    val voz = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_izzy)
         validaciondeversion()
         izzy()
-        capturavoz = TextToSpeech(this, this)
+        CapturaVoz = TextToSpeech(this, this)
         botonatras()
     }
     fun izzy()
     {
-        val configuracion = ai.api.android.AIConfiguration(tokendeacceso, AIConfiguration.SupportedLanguages.Spanish,
+        val configuracion = ai.api.android.AIConfiguration(TokenAcceso, AIConfiguration.SupportedLanguages.Spanish,
             ai.api.android.AIConfiguration.RecognitionEngine.System
         )
         val microfono = AIService.getService(this, configuracion)
@@ -85,14 +85,14 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED)
         {
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), VOZ)
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), voz)
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun obtenertextos(vozescuchada: String?, respuesta: String?)
+    fun obtenertextos(VozEscuchada: String?, respuesta: String?)
     {
-        tvescuchandoizzy.text = vozescuchada
+        tvescuchandoizzy.text = VozEscuchada
         tvrespondiendoizzy.text = respuesta
         respuesta(respuesta)
     }
@@ -100,7 +100,7 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun respuesta(respuesta: String?)
     {
-        capturavoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
+        CapturaVoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
     }
     fun botonatras ()
     {
