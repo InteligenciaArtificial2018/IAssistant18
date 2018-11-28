@@ -18,7 +18,6 @@ import android.support.v4.content.ContextCompat
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     override fun onInit(status: Int) {
 
