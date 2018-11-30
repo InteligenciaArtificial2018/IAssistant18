@@ -24,7 +24,6 @@ class Main : AppCompatActivity() {
             else
             {
                 Toast.makeText(this, "¡Verifica tu conexión a Internet!", Toast.LENGTH_SHORT).show()
-
             }
         }
 
@@ -37,7 +36,6 @@ class Main : AppCompatActivity() {
             else
             {
                 Toast.makeText(this, "¡Verifica tu conexión a Internet!", Toast.LENGTH_SHORT).show()
-
             }
         }
     }

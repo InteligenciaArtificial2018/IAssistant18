@@ -5,7 +5,9 @@ import ai.api.AIListener
 import ai.api.android.AIService
 import ai.api.model.AIError
 import ai.api.model.AIResponse
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -13,9 +15,7 @@ import android.speech.tts.TextToSpeech
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_izzy.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     override fun onInit(status: Int) {
@@ -25,9 +25,16 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResult(result: AIResponse?) {
         val resultado = result?.result
-        val VozEscuchada = resultado?.resolvedQuery
+        val vozEscuchada = resultado?.resolvedQuery
         val respuesta = resultado?.fulfillment?.speech
-        obtenertextos(VozEscuchada, respuesta)
+        obtenertextos(vozEscuchada, respuesta)
+        if (respuesta == "Dejame buscar en la web")
+        {
+            val URL = "http://www.google.com/search?q=$vozEscuchada!!"
+            val Uri = Uri.parse(URL)
+            val web = Intent(Intent.ACTION_VIEW, Uri)
+            startActivity(web)
+        }
     }
 
     override fun onListeningStarted() {

@@ -7,7 +7,9 @@ import ai.api.model.AIError
 import ai.api.model.AIResponse
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -26,9 +28,16 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResult(result: AIResponse?) {
         val resultado = result?.result
-        val VozEscuchada = resultado?.resolvedQuery
+        val vozEscuchada = resultado?.resolvedQuery
         val respuesta = resultado?.fulfillment?.speech
-        obtenertextos(VozEscuchada, respuesta)
+        obtenertextos(vozEscuchada, respuesta)
+        if (respuesta == "Dejame buscar en la web")
+        {
+            val URL = "http://www.google.com/search?q=$vozEscuchada!!"
+            val Uri = Uri.parse(URL)
+            val web = Intent(Intent.ACTION_VIEW, Uri)
+            startActivity(web)
+        }
     }
 
     override fun onListeningStarted() {
@@ -50,9 +59,8 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     }
 
     override fun onListeningFinished() {
-
     }
-    private var CapturaVoz : TextToSpeech? = null
+    private var capturaVoz : TextToSpeech? = null
     private val Token = "6d839590a6244f7baca91a8c44564f99"
     private val voz = 1
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +68,7 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
         setContentView(R.layout.activity_main)
         validaciondeversion()
         jeffy()
-        CapturaVoz = TextToSpeech(this, this)
+        capturaVoz = TextToSpeech(this, this)
         botonatras()
     }
 
@@ -99,7 +107,7 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun respuesta(respuesta: String?)
     {
-        CapturaVoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
+        capturaVoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
     }
 
     @SuppressLint("RestrictedApi")
