@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     override fun onInit(status: Int) {
 
     }
-
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResult(result: AIResponse?) {
@@ -38,27 +37,28 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
             val web = Intent(Intent.ACTION_VIEW, Uri)
             startActivity(web)
         }
+        else if (respuesta == "abriendo whatsapp")
+        {
+            val wpp = ClaseAplicaciones()
+            wpp.Whatsapp()
+        }
     }
-
     override fun onListeningStarted() {
 
     }
-
     override fun onAudioLevel(level: Float) {
 
     }
-
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onError(error: AIError?) {
         val MensajError = "Despacio, ha ocurrido un error"
         obtenertextos(MensajError, MensajError)
     }
-
     override fun onListeningCanceled() {
 
     }
-
     override fun onListeningFinished() {
+
     }
     private var capturaVoz : TextToSpeech? = null
     private val Token = "6d839590a6244f7baca91a8c44564f99"

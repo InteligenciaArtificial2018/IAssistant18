@@ -21,7 +21,6 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     override fun onInit(status: Int) {
 
     }
-
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResult(result: AIResponse?) {
         val resultado = result?.result
