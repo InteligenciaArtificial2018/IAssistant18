@@ -39,8 +39,10 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
         }
         else if (respuesta == "abriendo whatsapp")
         {
-            val wpp = ClaseAplicaciones()
-            wpp.Whatsapp()
+            if (vozEscuchada != null) {
+                val wpp  = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
+                startActivity(wpp);
+            }
         }
     }
     override fun onListeningStarted() {
