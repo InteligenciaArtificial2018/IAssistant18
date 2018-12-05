@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Jeffy</string>
     <string name="tvBienvenida">!Bienvenido a IAssistant, escoge el personaje con quien quieres interactuar!</string>
+    <string name="tvJsplash">IASSISTANT18</string>
     <string name="tvIzzy">Izzy</string>
     <string name="tvJeffy">Jeffy</string>
     <string name="tvescuchandoizzy">Escuchando</string>
@@ -11,10 +12,10 @@
     <string name="tvrespondiendotituloizzy">Respondiendo</string>
     <string name="tvescuchandotitulojeffy">Escuchando</string>
     <string name="tvrespondiendotitulojeffy">Respondiendo</string>
-    <string name="imgmicroizzy"></string>
-    <string name="imgizzy"></string>
-    <string name="imgjeffy"></string>
-    <string name="imgmicrojeffy"></string>
-    <string name="botonjeffy"></string>
-    <string name="botonizzy"></string>
+    <string name="imgmicroizzy">.</string>
+    <string name="imgizzy">.</string>
+    <string name="imgjeffy">.</string>
+    <string name="imgmicrojeffy">.</string>
+    <string name="botonjeffy">.</string>
+    <string name="botonizzy">.</string>
 </resources>

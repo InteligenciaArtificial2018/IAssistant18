@@ -13,16 +13,26 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/TemaMain">
-        <activity android:name=".Main" >
+        <activity android:name=".splash" android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:parentActivityName=".Main" android:theme="@style/TemaJeffy" android:label="Jeffy">
+        <activity
+                android:name=".MainActivity"
+                android:label="Jeffy"
+                android:parentActivityName=".Main"
+                android:theme="@style/TemaJeffy">
         </activity>
-        <activity android:name=".Izzy" android:parentActivityName=".Main" android:theme="@style/TemaIzzy" android:label="Izzy">
+        <activity
+                android:name=".Izzy"
+                android:label="Izzy"
+                android:parentActivityName=".Main"
+                android:theme="@style/TemaIzzy">
+        </activity>
+        <activity android:name=".Main">
         </activity>
     </application>
 
