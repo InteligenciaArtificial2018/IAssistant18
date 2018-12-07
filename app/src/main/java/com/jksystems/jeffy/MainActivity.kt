@@ -32,16 +32,107 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
         obtenertextos(vozEscuchada, respuesta)
         if (respuesta == "Dejame buscar en la web")
         {
-            val URL = "http://www.google.com/search?q=$vozEscuchada!!"
-            val Uri = Uri.parse(URL)
-            val web = Intent(Intent.ACTION_VIEW, Uri)
+            val url = "http://www.google.com/search?q=$vozEscuchada!!"
+            val uri = Uri.parse(url)
+            val web = Intent(Intent.ACTION_VIEW, uri)
             startActivity(web)
         }
         else if (respuesta == "abriendo whatsapp")
         {
             if (vozEscuchada != null) {
-                val wpp  = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
-                startActivity(wpp);
+                val wpp  = getPackageManager().getLaunchIntentForPackage("com.whatsapp")
+                startActivity(wpp)
+            }
+        }
+        else if (respuesta == "abriendo youtube")
+        {
+            if (vozEscuchada != null) {
+                val you  = getPackageManager().getLaunchIntentForPackage("com.google.android.youtube")
+                startActivity(you)
+            }
+        }
+        else if (respuesta == "abriendo la calculadora")
+        {
+            if (vozEscuchada != null) {
+                val cal  = getPackageManager().getLaunchIntentForPackage("com.android.calculator2")
+                startActivity(cal)
+            }
+        }
+        else if (respuesta == "abriendo el calendario")
+        {
+            if (vozEscuchada != null) {
+                val calen  = getPackageManager().getLaunchIntentForPackage("com.android.calendar")
+                startActivity(calen)
+            }
+        }
+        else if (respuesta == "abriendo el navegador")
+        {
+            if (vozEscuchada != null) {
+                val nav  = getPackageManager().getLaunchIntentForPackage("com.android.chrome")
+                startActivity(nav)
+            }
+        }
+        else if (respuesta == "abriendo los contactos")
+        {
+            if (vozEscuchada != null) {
+                val con  = getPackageManager().getLaunchIntentForPackage("com.android.contacts")
+                startActivity(con)
+            }
+        }
+        else if (respuesta == "abriendo la play store")
+        {
+            if (vozEscuchada != null) {
+                val play  = getPackageManager().getLaunchIntentForPackage("com.android.vending")
+                startActivity(play)
+            }
+        }
+        else if (respuesta == "abriendo la grabadora")
+        {
+            if (vozEscuchada != null) {
+                val grab  = getPackageManager().getLaunchIntentForPackage("com.android.soundrecorder")
+                startActivity(grab)
+            }
+        }
+        else if (respuesta == "abriendo instagram")
+        {
+            if (vozEscuchada != null) {
+                val insta  = getPackageManager().getLaunchIntentForPackage("com.instagram.android")
+                startActivity(insta)
+            }
+        }
+        else if (respuesta == "abriendo facebook")
+        {
+            if (vozEscuchada != null) {
+                val face  = getPackageManager().getLaunchIntentForPackage("com.facebook.android")
+                startActivity(face)
+            }
+        }
+        else if (respuesta == "abriendo el reproductor")
+        {
+            if (vozEscuchada != null) {
+                val music  = getPackageManager().getLaunchIntentForPackage("com.android.music")
+                startActivity(music)
+            }
+        }
+        else if (respuesta == "abriendo las alarmas")
+        {
+            if (vozEscuchada != null) {
+                val alarm  = getPackageManager().getLaunchIntentForPackage("com.android.deskclock")
+                startActivity(alarm)
+            }
+        }
+        else if (respuesta == "abriendo el telefono")
+        {
+            if (vozEscuchada != null) {
+                val tel  = getPackageManager().getLaunchIntentForPackage("com.android.phone")
+                startActivity(tel)
+            }
+        }
+        else if (respuesta == "abriendo configuracion del movil")
+        {
+            if (vozEscuchada != null) {
+                val conf  = getPackageManager().getLaunchIntentForPackage("com.android.settings")
+                startActivity(conf)
             }
         }
     }
@@ -53,8 +144,8 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
     }
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onError(error: AIError?) {
-        val MensajError = "Despacio, ha ocurrido un error"
-        obtenertextos(MensajError, MensajError)
+        val mensajError = "Despacio, ha ocurrido un error"
+        obtenertextos(mensajError, mensajError)
     }
     override fun onListeningCanceled() {
 
@@ -63,7 +154,7 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
 
     }
     private var capturaVoz : TextToSpeech? = null
-    private val Token = "6d839590a6244f7baca91a8c44564f99"
+    private val token = "6d839590a6244f7baca91a8c44564f99"
     private val voz = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +167,7 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
 
     fun jeffy()
     {
-        val configuracion = AIConfiguration(Token, ai.api.AIConfiguration.SupportedLanguages.Spanish,AIConfiguration.RecognitionEngine.System)
+        val configuracion = AIConfiguration(token, ai.api.AIConfiguration.SupportedLanguages.Spanish,AIConfiguration.RecognitionEngine.System)
         val microfono = AIService.getService(this, configuracion)
         microfono.setListener(this)
         microjeffy.setOnClickListener { microfono.startListening()  }

@@ -12,10 +12,10 @@ class Main : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        val BtnIzzy = findViewById<ImageView>(R.id.izzbtn)
-        val BtnJeffy = findViewById<ImageView>(R.id.jeffybtn)
+        val btnIzzy = findViewById<ImageView>(R.id.izzbtn)
+        val btnJeffy = findViewById<ImageView>(R.id.jeffybtn)
 
-        BtnIzzy.setOnClickListener {
+        btnIzzy.setOnClickListener {
             if (VerificarConexion.verificarConexion(this))
             {
                 val intent = Intent(this, Izzy::class.java)
@@ -27,7 +27,7 @@ class Main : AppCompatActivity() {
             }
         }
 
-        BtnJeffy.setOnClickListener {
+        btnJeffy.setOnClickListener {
             if (VerificarConexion.verificarConexion(this))
             {
                 val intent = Intent(this, MainActivity::class.java)

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "748702325770",
+    "firebase_url": "https://iassistantdatabase.firebaseio.com",
+    "project_id": "iassistantdatabase",
+    "storage_bucket": "iassistantdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748702325770:android:69fff409fab7e6da",
+        "android_client_info": {
+          "package_name": "com.jksystems.jeffy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748702325770-d5bl1ovkb2du9m72nrmum4qhov9gt3op.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQE7T6wYz9jFVTlQ8JFzlElBcYkmvzkis"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
