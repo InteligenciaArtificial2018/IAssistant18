@@ -17,6 +17,7 @@ import android.speech.tts.TextToSpeech
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
         val vozEscuchada = resultado?.resolvedQuery
         val respuesta = resultado?.fulfillment?.speech
         obtenertextos(vozEscuchada, respuesta)
+        val bdd = FirebaseDatabase.getInstance().getReference("Jeffy")
+        val jeffyPreguntas = Preguntas(vozEscuchada!!)
+        val jeffyRespuestas = Respuestas(respuesta!!)
+        bdd.child("P:").setValue(jeffyPreguntas)
+        bdd.child("R:").setValue(jeffyRespuestas)
         if (respuesta == "Dejame buscar en la web")
         {
             val url = "http://www.google.com/search?q=$vozEscuchada!!"

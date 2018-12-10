@@ -15,6 +15,7 @@ import android.speech.tts.TextToSpeech
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_izzy.*
 
 class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
@@ -77,6 +78,11 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
         val vozEscuchada = resultado?.resolvedQuery
         val respuesta = resultado?.fulfillment?.speech
         obtenertextos(vozEscuchada, respuesta)
+        val bdd = FirebaseDatabase.getInstance().getReference("Izzy")
+        val izzyPreguntas = Preguntas(vozEscuchada!!)
+        val izzyRespuestas = Respuestas(respuesta!!)
+        bdd.child("P:").setValue(izzyPreguntas)
+        bdd.child("R:").setValue(izzyRespuestas)
         if (respuesta == "Dejame buscar en la web")
         {
             val url = "http://www.google.com/search?q=$vozEscuchada!!"
