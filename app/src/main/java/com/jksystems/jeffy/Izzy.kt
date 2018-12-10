@@ -6,8 +6,6 @@ import ai.api.android.AIService
 import ai.api.model.AIError
 import ai.api.model.AIResponse
 import android.content.Intent
-import android.content.Intent.ACTION_VIEW
-import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -18,7 +16,6 @@ import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_izzy.*
-import java.io.IOException
 
 class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     var CapturaVoz : TextToSpeech? = null
@@ -153,8 +150,6 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     override fun onListeningFinished() {
 
     }
-
-
     fun botonatras ()
     {
         val atras = supportActionBar

@@ -51,20 +51,6 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
                 startActivity(you)
             }
         }
-        else if (respuesta == "abriendo la calculadora")
-        {
-            if (vozEscuchada != null) {
-                val cal  = getPackageManager().getLaunchIntentForPackage("com.android.calculator2")
-                startActivity(cal)
-            }
-        }
-        else if (respuesta == "abriendo el calendario")
-        {
-            if (vozEscuchada != null) {
-                val calen  = getPackageManager().getLaunchIntentForPackage("com.android.calendar")
-                startActivity(calen)
-            }
-        }
         else if (respuesta == "abriendo el navegador")
         {
             if (vozEscuchada != null) {
@@ -72,25 +58,11 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
                 startActivity(nav)
             }
         }
-        else if (respuesta == "abriendo los contactos")
-        {
-            if (vozEscuchada != null) {
-                val con  = getPackageManager().getLaunchIntentForPackage("com.android.contacts")
-                startActivity(con)
-            }
-        }
         else if (respuesta == "abriendo la play store")
         {
             if (vozEscuchada != null) {
                 val play  = getPackageManager().getLaunchIntentForPackage("com.android.vending")
                 startActivity(play)
-            }
-        }
-        else if (respuesta == "abriendo la grabadora")
-        {
-            if (vozEscuchada != null) {
-                val grab  = getPackageManager().getLaunchIntentForPackage("com.android.soundrecorder")
-                startActivity(grab)
             }
         }
         else if (respuesta == "abriendo instagram")
@@ -103,36 +75,8 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
         else if (respuesta == "abriendo facebook")
         {
             if (vozEscuchada != null) {
-                val face  = getPackageManager().getLaunchIntentForPackage("com.facebook.android")
+                val face  = getPackageManager().getLaunchIntentForPackage("com.facebook.katana")
                 startActivity(face)
-            }
-        }
-        else if (respuesta == "abriendo el reproductor")
-        {
-            if (vozEscuchada != null) {
-                val music  = getPackageManager().getLaunchIntentForPackage("com.android.music")
-                startActivity(music)
-            }
-        }
-        else if (respuesta == "abriendo las alarmas")
-        {
-            if (vozEscuchada != null) {
-                val alarm  = getPackageManager().getLaunchIntentForPackage("com.android.deskclock")
-                startActivity(alarm)
-            }
-        }
-        else if (respuesta == "abriendo el telefono")
-        {
-            if (vozEscuchada != null) {
-                val tel  = getPackageManager().getLaunchIntentForPackage("com.android.phone")
-                startActivity(tel)
-            }
-        }
-        else if (respuesta == "abriendo configuracion del movil")
-        {
-            if (vozEscuchada != null) {
-                val conf  = getPackageManager().getLaunchIntentForPackage("com.android.settings")
-                startActivity(conf)
             }
         }
     }

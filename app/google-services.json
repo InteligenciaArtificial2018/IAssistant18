@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "748702325770",
-    "firebase_url": "https://iassistantdatabase.firebaseio.com",
-    "project_id": "iassistantdatabase",
-    "storage_bucket": "iassistantdatabase.appspot.com"
+    "project_number": "1067040525173",
+    "firebase_url": "https://jeffy-7c811.firebaseio.com",
+    "project_id": "jeffy-7c811",
+    "storage_bucket": "jeffy-7c811.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:748702325770:android:69fff409fab7e6da",
+        "mobilesdk_app_id": "1:1067040525173:android:69fff409fab7e6da",
         "android_client_info": {
           "package_name": "com.jksystems.jeffy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "748702325770-d5bl1ovkb2du9m72nrmum4qhov9gt3op.apps.googleusercontent.com",
+          "client_id": "1067040525173-s0am6aohc21u5bs84kachclko743o8u4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDQE7T6wYz9jFVTlQ8JFzlElBcYkmvzkis"
+          "current_key": "AIzaSyAuzxyWaQVlq1gHnT7pV2_3j9dGrIs_790"
         }
       ],
       "services": {
