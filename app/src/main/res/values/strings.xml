@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Jeffy</string>
-    <string name="tvBienvenida">!Bienvenido a IAssistant, escoge el personaje con quien quieres interactuar!, haz click AQUI para ver los registros.</string>
+    <string name="tvBienvenida">!Bienvenido a IAssistant, escoge el personaje con quien quieres interactuar!, haz click
+        AQUI para ver los registros.
+    </string>
     <string name="tvJsplash">IASSISTANT18</string>
     <string name="tvIzzy">Izzy</string>
     <string name="tvJeffy">Jeffy</string>

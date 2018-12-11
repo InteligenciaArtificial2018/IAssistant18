@@ -14,7 +14,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/TemaMain">
-        <activity android:name=".splash" android:theme="@style/Theme.AppCompat.NoActionBar" android:screenOrientation="portrait">
+        <activity
+                android:name=".splash"
+                android:screenOrientation="portrait"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -24,18 +27,25 @@
         <activity
                 android:name=".MainActivity"
                 android:label="Jeffy"
-                android:screenOrientation="portrait"
                 android:parentActivityName=".Main"
+                android:screenOrientation="portrait"
                 android:theme="@style/TemaJeffy">
         </activity>
         <activity
                 android:name=".Izzy"
                 android:label="Izzy"
-                android:screenOrientation="portrait"
                 android:parentActivityName=".Main"
+                android:screenOrientation="portrait"
                 android:theme="@style/TemaIzzy">
         </activity>
-        <activity android:name=".Main" android:screenOrientation="portrait">
+        <activity
+                android:name=".Main"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Registros"
+                  android:parentActivityName=".Main"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/TemaJeffy">
         </activity>
     </application>
 

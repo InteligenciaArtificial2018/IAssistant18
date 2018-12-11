@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 
@@ -16,7 +17,12 @@ class Main : AppCompatActivity() {
 
         val btnIzzy = findViewById<ImageView>(R.id.izzbtn)
         val btnJeffy = findViewById<ImageView>(R.id.jeffybtn)
+        val registros = findViewById<TextView>(R.id.textView5)
 
+        registros.setOnClickListener {
+            val intent = Intent(this, Registros::class.java)
+            startActivity(intent)
+        }
         btnIzzy.setOnClickListener {
             if (VerificarConexion.verificarConexion(this))
             {
