@@ -45,7 +45,7 @@
         <activity android:name=".Registros"
                   android:parentActivityName=".Main"
                   android:screenOrientation="portrait"
-                  android:theme="@style/TemaJeffy">
+                  android:theme="@style/TemaMain">
         </activity>
     </application>
 

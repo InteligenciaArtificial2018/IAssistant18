@@ -85,6 +85,13 @@ class MainActivity : AppCompatActivity(), AIListener, TextToSpeech.OnInitListene
                 startActivity(face)
             }
         }
+        else if (respuesta == "abriendo los registros")
+        {
+            if (vozEscuchada != null) {
+                val intent = Intent(this, Registros::class.java)
+                startActivity(intent)
+            }
+        }
     }
     override fun onListeningStarted() {
 
