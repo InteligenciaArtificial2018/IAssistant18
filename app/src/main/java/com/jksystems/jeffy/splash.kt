@@ -12,7 +12,7 @@ class splash : AppCompatActivity() {
     var elhandler : Handler? = null
 
     // variable que controla el tiempo que el splash se proyectara
-    val tiempo : Long = 3000
+    val tiempo : Long = 3100
 
     // variable que controla si el layout corre
     val corriendo: Runnable = Runnable()
