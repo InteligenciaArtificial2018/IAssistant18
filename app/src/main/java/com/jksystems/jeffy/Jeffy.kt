@@ -1,13 +1,15 @@
 package com.jksystems.jeffy
 
 // Metodos importados del AI, esto viene de una implementacion en las dependencias
-import ai.api.AIConfiguration
 import ai.api.AIListener
+import ai.api.android.AIConfiguration
 import ai.api.android.AIService
 import ai.api.model.AIError
 import ai.api.model.AIResponse
 
 // Importe de las super clases de Android
+import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -21,50 +23,49 @@ import android.support.v4.content.ContextCompat
 
 // Importe de las dependencias de Firebase
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_izzy.*
+import kotlinx.android.synthetic.main.activity_jeffy.*
 
-// Clase del agente Izzy
-class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
+// Clase del agente Jeffy
+class Jeffy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     // Esta variable acciona el discurso que nos devuelve el agente
-    var CapturaVoz : TextToSpeech? = null
+    private var capturaVoz : TextToSpeech? = null
     // Esta variable nos declara la llave del agente que nos ofrece DIALOGFLOW
-    val TokenAcceso = "fb03ea865c5a48c1801dd6383346fcc4"
+    private val token = "6d839590a6244f7baca91a8c44564f99"
     // Esta variable controla el requestcode que necesita la aplicacion para arrojar un resultado
-    val voz = 1
+    private val voz = 1
 
     // Instancia OnCreate
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_izzy)
+        setContentView(R.layout.activity_jeffy)
 
         // Funcion que valida la SDK del telefono
         validaciondeversion()
 
         // Funcion que obtiene los servicios de AIConfiguration
-        izzy()
+        jeffy()
 
         // Variable que obtiene lo que le decimos al agente
-        CapturaVoz = TextToSpeech(this, this)
+        capturaVoz = TextToSpeech(this, this)
 
         // Funcion que devuelve el activity hacia atras
         botonatras()
     }
-    fun izzy()
+
+    fun jeffy()
     {
         // Esta variable define el token de acceso del agente y el idioma con el cual se va a interactuar
-        val configuracion = ai.api.android.AIConfiguration(TokenAcceso, AIConfiguration.SupportedLanguages.Spanish,
-            ai.api.android.AIConfiguration.RecognitionEngine.System)
-        // Esta variable funciona como microfono
+        val configuracion = AIConfiguration(token, ai.api.AIConfiguration.SupportedLanguages.Spanish,AIConfiguration.RecognitionEngine.System)
         val microfono = AIService.getService(this, configuracion)
 
-        // El microfono escucha lo que el usuario dice
+        // Esta variable funciona como microfono
         microfono.setListener(this)
 
         // Al hacer click en el microfono, comienza a escuchar
-        microizzy.setOnClickListener { microfono.startListening()  }
+        microjeffy.setOnClickListener { microfono.startListening()  }
     }
 
-    fun validaciondeversion()
+    private fun validaciondeversion()
     {
         // Si la SDK del telefono es superior a LOLLIPOP, la aplicacion dara permiso para ejecutar sus servicios
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
@@ -73,7 +74,7 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
         }
     }
 
-    fun permiso()
+    private fun permiso()
     {
         // Obtiene los permisos para poder grabar voz
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED)
@@ -88,8 +89,8 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     // Setea en los textview la pregunta del usuario y la respuesta del agente
     fun obtenertextos(VozEscuchada: String?, respuesta: String?)
     {
-        tvescuchandoizzy.text = VozEscuchada
-        tvrespondiendoizzy.text = respuesta
+        tvescuchandojeffy.text = VozEscuchada
+        tvrespondiendojeffy.text = respuesta
         respuesta(respuesta)
     }
 
@@ -100,17 +101,19 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
     fun respuesta(respuesta: String?)
     {
         // Captura la respuesta del agente y acciona su discurso para que el usuario la pueda escuchar
-        CapturaVoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
+        capturaVoz?.speak(respuesta, TextToSpeech.QUEUE_FLUSH, null, null )
     }
     override fun onInit(status: Int) {
         // Metodo vacio obligatorio de AIservices
     }
 
     // Esta anotacion despliega un consejo sobre que SDK es mas apropiado para la app
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 
     // Metodo de AIservices que inicia cuando el agente termina de hablaronos
     override fun onResult(result: AIResponse?) {
+
         // variable que obtiene si el proceso de preguntar y escuchar ha sido exitoso
         val resultado = result?.result
 
@@ -124,15 +127,15 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
         obtenertextos(vozEscuchada, respuesta)
 
         // Instanciamos la base de datos de FireBase
-        val bdd = FirebaseDatabase.getInstance().getReference("Izzy")
+        val bdd = FirebaseDatabase.getInstance().getReference("Jeffy")
 
         // Obtenemos los constructores de preguntas y respuestas
-        val izzyPreguntas = Preguntas(vozEscuchada!!)
-        val izzyRespuestas = Respuestas(respuesta!!)
+        val jeffyPreguntas = Preguntas(vozEscuchada!!)
+        val jeffyRespuestas = Respuestas(respuesta!!)
 
         // Insertamos la pregunta y la respuesta en la base de datos
-        bdd.child("P:").setValue(izzyPreguntas)
-        bdd.child("R:").setValue(izzyRespuestas)
+        bdd.child("P:").setValue(jeffyPreguntas)
+        bdd.child("R:").setValue(jeffyRespuestas)
 
         // Los siguientes "ifs" abren aplicaciones
         if (respuesta == "Dejame buscar en la web")
@@ -192,7 +195,6 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
             }
         }
     }
-
     override fun onListeningStarted() {
         // Metodo de AIservices que se ejecuta cuando se comienza a escuchar
     }
@@ -201,18 +203,17 @@ class Izzy : AppCompatActivity(), AIListener, TextToSpeech.OnInitListener {
         // Metodo de AIservices que se ejecuta con el volumen de la aplicacion
     }
 
-    // Esta anotacion despliega un consejo sobre que SDK es mas apropiado para la app
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+
+    // Mensaje cuando la app da error
     override fun onError(error: AIError?) {
         val mensajError = "Despacio, ha ocurrido un error"
-        //Toast.makeText(this, "Conectate a una red", Toast.LENGTH_SHORT).show()
         obtenertextos(mensajError, mensajError)
     }
 
     override fun onListeningCanceled() {
         // Metodo de AIservices que se cancela el proceso de escuchar
     }
-
     override fun onListeningFinished() {
         // Metodo de AIservices que se ejecuta con termina de escuchar
     }

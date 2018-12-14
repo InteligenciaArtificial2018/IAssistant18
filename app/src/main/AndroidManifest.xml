@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.jksystems.jeffy">
+    <!-- IAssistant 18
+    Hecho por: Jefferson Elias Calix
+    Inteligencia Artificial 2018
+    aplicacion de agentes de voz inteligentes
+    -->
 
+    <!-- Permisis que necesita la aplicacion para ejecutarse -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
+    <!-- Layouts-->
     <application
+
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="IAssistant18"
@@ -25,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".MainActivity"
+                android:name=".Jeffy"
                 android:label="Jeffy"
                 android:parentActivityName=".Main"
                 android:screenOrientation="portrait"
@@ -48,5 +56,4 @@
                   android:theme="@style/TemaMain">
         </activity>
     </application>
-
 </manifest>
