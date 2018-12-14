@@ -38,7 +38,6 @@ class Main : AppCompatActivity() {
                 Toast.makeText(this, "¡Verifica tu conexión a Internet!", Toast.LENGTH_SHORT).show()
             }
         }
-
         btnJeffy.setOnClickListener {
             if (VerificarConexion.verificarConexion(this))
             {

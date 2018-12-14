@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1067040525173-r2h5na610uaqmjmki26pomj9ngr07r37.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jksystems.jeffy",
+            "certificate_hash": "a2d5270c2878f6f1757c47267bcb1a8ad933e62e"
+          }
+        },
+        {
           "client_id": "1067040525173-s0am6aohc21u5bs84kachclko743o8u4.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067040525173-dkln28ebmdmgf88gf15jvjducmi10rmk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

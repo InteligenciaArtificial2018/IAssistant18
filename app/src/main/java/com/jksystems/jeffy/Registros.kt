@@ -2,43 +2,26 @@ package com.jksystems.jeffy
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
 import android.widget.ListView
 import android.widget.TextView
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.activity_registros.*
 
 class Registros : AppCompatActivity() {
-
-    lateinit var bdd: DatabaseReference
-    lateinit var cargaLista: MutableList<Bddizzy>
-    lateinit var lista: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registros)
+        val bdd = FirebaseDatabase.getInstance().getReference()
+        val registrosizzy = Main().visitaIzzy
+        val registrosjeffy = Main().visitaJeffy
+        val regizzy = findViewById<TextView>(R.id.regizzi)
+        val regjeffy = findViewById<TextView>(R.id.regijeffi)
 
-        cargaLista = mutableListOf()
-        lista = findViewById(R.id.listregistros)
-        bdd = FirebaseDatabase.getInstance().getReference("jeffy-7c811")
-
-        bdd.addValueEventListener(object :  ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                cargaLista.clear()
-                if (p0.exists()){
-                    for (i in p0.children)
-                    {
-                        val visitas = i.getValue(Bddizzy::class.java)
-                        cargaLista.add(visitas!!)
-                    }
-
-                }
-            }
-        })
-
-        botonatras()
+        regizzy.setText(registrosizzy.toString())
+        regjeffy.setText(registrosjeffy.toString())
     }
     fun botonatras ()
     {
